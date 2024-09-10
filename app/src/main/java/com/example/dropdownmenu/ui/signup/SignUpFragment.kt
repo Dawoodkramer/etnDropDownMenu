@@ -1,4 +1,4 @@
-package com.example.dropdownmenu.ui.six_week_courses
+package com.example.dropdownmenu.ui.signup
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,12 +7,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.dropdownmenu.databinding.FragmentCoursesBinding
+import com.example.dropdownmenu.databinding.FragmentSignUpBinding
 
 
-class CoursesFragment : Fragment() {
+class SignUpFragmentFragment : Fragment() {
 
-    private var _binding: FragmentCoursesBinding? = null
+    private var _binding: FragmentSignUpBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -23,13 +23,16 @@ class CoursesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val coursesViewModel =
-            ViewModelProvider(this).get(CoursesViewModel::class.java)
+        val contactUsViewModel =
+            ViewModelProvider(this).get(SignUpViewModel::class.java)
 
-        _binding = FragmentCoursesBinding.inflate(inflater, container, false)
+        _binding = FragmentSignUpBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-
+        val textView: TextView = binding.textSign
+        contactUsViewModel.text.observe(viewLifecycleOwner) {
+            textView.text = it
+        }
         return root
     }
 

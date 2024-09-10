@@ -29,10 +29,7 @@ class SixMonthCoursesFragment : Fragment() {
         _binding = FragmentSixMonthCoursesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textSixMonthCourses
-        sixMonthCoursesViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+
         return root
     }
 
